@@ -10,8 +10,10 @@ Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdcommenter'
 
 filetype plugin indent on
+filetype plugin on
 
 " General settings
 syntax on
@@ -33,3 +35,5 @@ set expandtab
 " Powerline settings
 set laststatus=2
 
+" Key mappings
+let mapleader = ','
