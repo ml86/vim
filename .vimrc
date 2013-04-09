@@ -27,7 +27,7 @@ set incsearch
 set hlsearch
 set noshowmode
 set cursorline
-hi CursorLine cterm=inverse
+hi CursorLine cterm=NONE ctermbg=grey
 set clipboard=unnamed
 
 set autoindent
