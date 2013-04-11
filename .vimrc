@@ -28,6 +28,8 @@ set hlsearch
 set noshowmode
 set cursorline
 hi CursorLine cterm=NONE ctermbg=grey
+set colorcolumn=90
+hi ColorColumn ctermbg=magenta
 set clipboard=unnamed
 
 set autoindent
@@ -46,7 +48,7 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_auto_delimiter = 1
 let g:neocomplcache_max_list = 15
-let g:neocomplcache_disable_auto_complete = 1
+"let g:neocomplcache_disable_auto_complete = 1
 
 " Key mappings
 let mapleader = ','
