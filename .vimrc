@@ -28,7 +28,8 @@ set hlsearch
 set noshowmode
 set cursorline
 hi CursorLine cterm=NONE ctermbg=grey
-set colorcolumn=90
+set tw=90
+set colorcolumn=+1
 hi ColorColumn ctermbg=magenta
 set clipboard=unnamed
 
@@ -36,6 +37,9 @@ set autoindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
+
+" automatically re-source saved vimrc
+autocmd BufWritePost ~/.vimrc   so ~/.vimrc
 
 " Powerline settings
 set laststatus=2
