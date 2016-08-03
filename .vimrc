@@ -1,59 +1,66 @@
-" Vundle settings
+"----------------------------------------
+" NeoBundle initialization:
+"---------------------------------------
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
-set nocompatible
-filetype off
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Required:
+set runtimepath^=~/.vim/bundle/neobundle.vim/
 
-Bundle 'gmarik/vundle'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'majutsushi/tagbar'
-Bundle 'Shougo/neocomplcache'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
+" My Bundles here:
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'bling/vim-bufferline'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'easymotion/vim-easymotion'
+
+
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
-filetype plugin on
 
-" General settings
-syntax on
-set number
-set history=1000
-set hidden
-set showmatch
-set incsearch
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+"----------------------------------------
+"Misc section:
+"----------------------------------------
+let mapleader=" "
+
+noremap <LEADER>n :NERDTreeToggle<CR>
+nmap <LEADER>s <Plug>(easymotion-overwin-f)
+
 set hlsearch
-set noshowmode
-set cursorline
-hi CursorLine cterm=NONE ctermbg=grey
-set tw=90
-set colorcolumn=+1
-hi ColorColumn ctermbg=magenta
-set clipboard=unnamed
-
-set autoindent
-set shiftwidth=2
-set tabstop=2
-set expandtab
-
-" automatically re-source saved vimrc
-autocmd BufWritePost ~/.vimrc   so ~/.vimrc
-
-" Powerline settings
+set nu
+set history=1000
+" Show status bar always
 set laststatus=2
 
-" Neocomplcache settings
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_max_list = 15
-"let g:neocomplcache_disable_auto_complete = 1
+" Tab related stuff
+" This needs to be a autocmd which is run after the ftplugins(filetype
+" plugins) are executed, to overwrite the tab settings of this plugins.
+autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 
-" Key mappings
-let mapleader = ','
-nnoremap <leader>tt :TagbarToggle<CR>
+
+
+let g:bufferline_echo = 0
+let g:EasyMotion_do_mapping = 0
+
+
