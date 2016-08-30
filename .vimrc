@@ -24,7 +24,9 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'majutsushi/tagbar'
 
 
 " Refer to |:NeoBundle-examples|.
@@ -46,12 +48,20 @@ let mapleader=" "
 
 noremap <LEADER>n :NERDTreeToggle<CR>
 nmap <LEADER>s <Plug>(easymotion-overwin-f)
+nmap <LEADER>b :b#<CR>
+nmap <LEADER>t :TagbarToggle<CR>
+nmap <LEADER>in4 :setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4<CR>
+nmap <LEADER>ie4 :setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4<CR>
+nmap <LEADER>in2 :setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2<CR>
+nmap <LEADER>ie2 :setlocal noexpandtab shiftwidth=2 softtabstop=2 tabstop=2<CR>
 
 set hlsearch
 set nu
 set history=1000
 " Show status bar always
 set laststatus=2
+
+syntax enable
 
 " Tab related stuff
 " This needs to be a autocmd which is run after the ftplugins(filetype
