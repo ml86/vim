@@ -27,6 +27,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'altercation/vim-colors-solarized'
 
 
 " Refer to |:NeoBundle-examples|.
@@ -48,12 +49,19 @@ let mapleader=" "
 
 noremap <LEADER>n :NERDTreeToggle<CR>
 nmap <LEADER>s <Plug>(easymotion-overwin-f)
-nmap <LEADER>b :b#<CR>
+nmap <LEADER>b :<C-U>execute "<c-r>=v:count==0 ? "b#" :"b" . v:count<CR>"<CR>
 nmap <LEADER>t :TagbarToggle<CR>
 nmap <LEADER>in4 :setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4<CR>
 nmap <LEADER>ie4 :setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4<CR>
 nmap <LEADER>in2 :setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2<CR>
 nmap <LEADER>ie2 :setlocal noexpandtab shiftwidth=2 softtabstop=2 tabstop=2<CR>
+nmap <LEADER>fn :cn<CR>
+nmap <LEADER>fp :cp<CR>
+nmap <LEADER>fl :clist<CR>
+nmap <LEADER>ls :ls<CR>
+
+nmap <F4> :w \| !bjosh connect -d int_trunc int_trunc.bjosh<CR>
+
 
 set hlsearch
 set nu
@@ -62,11 +70,15 @@ set history=1000
 set laststatus=2
 
 syntax enable
+set background=dark
+colorscheme solarized
 
 " Tab related stuff
 " This needs to be a autocmd which is run after the ftplugins(filetype
 " plugins) are executed, to overwrite the tab settings of this plugins.
 autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+
+set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 
 
 
