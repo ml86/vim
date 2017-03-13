@@ -85,4 +85,7 @@ set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 let g:bufferline_echo = 0
 let g:EasyMotion_do_mapping = 0
 
+":ScratchBuffer makes current buffer disposable
+command! ScratchBuffer setlocal buftype=nofile noswapfile
+
 
