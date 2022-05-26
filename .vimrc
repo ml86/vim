@@ -60,6 +60,19 @@ nmap <LEADER>fp :cp<CR>
 nmap <LEADER>fl :clist<CR>
 nmap <LEADER>ls :ls<CR>
 
+
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+      \gvy/<C-R><C-R>=substitute(
+      \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+      \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+      \gvy?<C-R><C-R>=substitute(
+      \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+      \gV:call setreg('"', old_reg, old_regtype)<CR>
+
 nmap <F4> :w \| !bjosh connect -d int_trunc int_trunc.bjosh<CR>
 
 
