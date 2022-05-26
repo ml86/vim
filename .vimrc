@@ -89,10 +89,9 @@ colorscheme solarized
 " Tab related stuff
 " This needs to be a autocmd which is run after the ftplugins(filetype
 " plugins) are executed, to overwrite the tab settings of this plugins.
-autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+"autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
 
-set noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
-
+set expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 
 let g:bufferline_echo = 0
